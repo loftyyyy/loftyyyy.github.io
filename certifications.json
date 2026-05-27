@@ -1,0 +1,22 @@
+[
+  {
+    "title": "CKA: Certified Kubernetes Administrator",
+    "issuer": "Cloud Native Computing Foundation (CNCF)",
+    "year": 2024
+  },
+  {
+    "title": "AWS Certified Solutions Architect",
+    "issuer": "Amazon Web Services",
+    "year": 2023
+  },
+  {
+    "title": "CompTIA Security+",
+    "issuer": "CompTIA",
+    "year": 2023
+  },
+  {
+    "title": "Meta Back-End Developer",
+    "issuer": "Coursera",
+    "year": 2022
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "items": ["Java", "", "Python", "Zig", "TypeScript"]
+    },
+    {
+      "name": "Tools &amp; Frameworks",
+      "items": ["Docker", "PostgreSQL", "Redis", "Linux Kernel", "Git"]
+    },
+    {
+      "name": "Concepts",
+      "items": ["Dist Systems", "Concurrency", "Algorithms", "Compilers"]
+    }
+  ]
+}
