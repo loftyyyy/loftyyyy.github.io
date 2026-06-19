@@ -1,0 +1,30 @@
+[
+  {
+    "title": "NEURAL_SHARD",
+    "description": "Distributed vector database optimized for edge deployment. Built using Raft consensus and a custom persistent storage engine.",
+    "icon": "open_in_new",
+    "tags": ["rust", "grpc", "rocksdb"],
+    "cols": 8
+  },
+  {
+    "title": "GHOST_SHELL",
+    "description": "Minimalist terminal emulator with integrated markdown preview and Git status visualization.",
+    "icon": "terminal",
+    "tags": ["cpp", "opengl"],
+    "cols": 4
+  },
+  {
+    "title": "HELIOS_API",
+    "description": "Typescript SDK for autonomous drone navigation systems.",
+    "icon": "api",
+    "tags": ["typescript"],
+    "cols": 4
+  },
+  {
+    "title": "SYNX_OS",
+    "description": "Experimental microkernel written in Zig, targeting RISC-V architecture for educational research.",
+    "icon": "memory",
+    "tags": ["zig", "riscv"],
+    "cols": 8
+  }
+]

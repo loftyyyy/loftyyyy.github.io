@@ -2,6 +2,10 @@
 module.exports = {
   darkMode: "class",
   content: ["./*.html", "./*.js"],
+  safelist: [
+    "md:col-span-4",
+    "md:col-span-8",
+  ],
   theme: {
     extend: {
       colors: {

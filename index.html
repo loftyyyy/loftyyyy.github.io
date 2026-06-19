@@ -12,6 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700;800&amp;family=JetBrains+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
   <link href="dist/output.css" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
+  <style>
+    html { scrollbar-width: none; }
+    html::-webkit-scrollbar { display: none; }
+  </style>
   <script defer src="main.js"></script>
 </head>
 <body class="bg-background text-on-background transition-colors duration-300 font-body-md overflow-x-hidden">
@@ -95,7 +99,15 @@
       <div class="mb-12">
         <span class="font-code text-label-caps text-secondary">// WORK</span>
       </div>
-      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-12 gap-8"></div>
+      <div id="projects-grid">
+        <div class="carousel-viewport" tabindex="0" role="region" aria-label="Project carousel">
+          <div class="carousel-track" role="list"></div>
+        </div>
+        <div class="flex justify-center gap-4 pt-8">
+          <button class="carousel-btn px-8 py-4" id="carousel-prev" aria-label="Previous project">← PREV</button>
+          <button class="carousel-btn px-8 py-4" id="carousel-next" aria-label="Next project">NEXT →</button>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
@@ -122,11 +134,11 @@
         <a class="font-h2 text-h2 text-secondary pink-underline" href="mailto:rho@sysarch.engineer">rho@sysarch.engineer</a>
         </div>
         <div class="flex justify-center gap-12 pt-16">
-        <a class="group" target="_blank" href="https://www.linkedin.com/in/loftyyyy/">
+        <a class="group" target="_blank" href="https://www.github.com/loftyyyy">
             <img alt="GitHub" class="w-12 h-12 grayscale hover:grayscale-0 transition-all"
             src="https://api.iconify.design/mdi:github.svg?color=%230A66C2" />
         </a>
-        <a class="group" target="_blank" href="https://github.com/loftyyyy">
+        <a class="group" target="_blank" href="https://www.linkedin.com/in/loftyyyy/">
             <img alt="LinkedIn" class="w-12 h-12 grayscale hover:grayscale-0 transition-all"
             src="https://api.iconify.design/mdi:linkedin.svg?color=%230A66C2" />
         </a>
