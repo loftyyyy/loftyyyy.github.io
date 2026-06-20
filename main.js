@@ -79,6 +79,26 @@ const projects = [
     metric: "< 100ms p99 on all typed endpoints",
     longDesc: "A Monkeytype-inspired typing test built with Spring Boot and React/TypeScript. Implements stateless JWT auth with Redis token blocklisting, OAuth2 via GitHub/Google, per-user rate limiting, and a word difficulty pipeline using Python's wordfreq library. Features WPM burst charting, typing replay, and a results dashboard backed by PostgreSQL with Flyway migrations.",
   },
+  {
+    id: "relay",
+    title: "Relay",
+    icon: "message",
+    images: [],
+    description: "Real-time chat application with a Spring Boot WebSocket (STOMP) backend featuring JWT-authenticated handshakes, presence tracking, and unique username enforcement. React/TypeScript frontend with Zustand state management.",
+    tags: ["java", "springboot", "react", "typescript", "websocket"],
+    cols: 8,
+    link: "https://github.com/loftyyyy/relay",
+    demoLink: "https://relay-three-phi.vercel.app/",
+    role: "Full-Stack Developer",
+    status: "Active",
+    highlights: [
+      "STOMP over WebSocket with custom JWT handshake interceptor for connection-time authentication",
+      "Principal-based user identity binding via custom HandshakeHandler for per-user message routing",
+      "In-memory presence registry enforcing unique usernames and tracking online/offline state per session",
+    ],
+    metric: "Real-time message delivery via STOMP pub/sub broker",
+    longDesc: "A real-time chat application built with Spring Boot WebSocket (STOMP/SockJS) and a React 18/TypeScript/Zustand frontend. Authentication happens at the WebSocket handshake itself — a custom JwtHandshakeInterceptor validates the JWT from the connection URI before the upgrade completes, and a custom HandshakeHandler binds the verified identity to a Principal so Spring can route user-specific messages via /user destinations. Features room-based broadcast channels, connection-time presence tracking, and unique username enforcement across active sessions.",
+  },
 ];
 
 const skills = {
