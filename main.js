@@ -4,6 +4,7 @@ const projects = [
     title: "PharmaTrack",
     icon: "local_pharmacy",
     images: [],
+    imageCount: 8,
     description: "Full-stack pharmacy management system with a Spring Boot REST API backend and a React frontend. Handles inventory, prescriptions, and pharmacy operations.",
     tags: ["java", "springboot", "react"],
     cols: 8,
@@ -24,6 +25,7 @@ const projects = [
     title: "LSRS",
     icon: "storefront",
     images: [],
+    imageCount: 7,
     description: "Full-stack gown and suit rental management system with deposit/rental invoice workflows, status transitions, and late fee reconciliation.",
     tags: ["laravel", "php", "tailwind"],
     cols: 4,
@@ -44,6 +46,7 @@ const projects = [
     title: "MalVote",
     icon: "security",
     images: [],
+    imageCount: 6,
     description: "Android APK malware classifier using a soft voting ensemble (Random Forest, Extra Trees, XGBoost, LightGBM) achieving 96.05% accuracy across 5 threat classes. Features a FastAPI backend with real-time SSE log streaming and a React dashboard for drag-and-drop APK analysis.",
     tags: ["python", "fastapi", "react", "ml"],
     cols: 4,
@@ -64,6 +67,7 @@ const projects = [
     title: "19wpm",
     icon: "keyboard",
     images: [],
+    imageCount: 7,
     description: "Full-stack typing test application with a Spring Boot backend featuring JWT authentication, OAuth2 social login, Redis-based token blocklisting, and Bucket4j rate limiting. React frontend with TypeScript.",
     tags: ["java", "springboot", "react", "typescript"],
     cols: 8,
@@ -84,6 +88,7 @@ const projects = [
     title: "Relay",
     icon: "message",
     images: [],
+    imageCount: 3,
     description: "Real-time chat application with a Spring Boot WebSocket (STOMP) backend featuring JWT-authenticated handshakes, presence tracking, and unique username enforcement. React/TypeScript frontend with Zustand state management.",
     tags: ["java", "springboot", "react", "typescript", "websocket"],
     cols: 8,
@@ -206,6 +211,20 @@ function renderProjects() {
     </div>`
     )
     .join("");
+
+  track.querySelectorAll(".details-btn").forEach((btn) => {
+    const p = projects.find((proj) => proj.id === btn.dataset.projectId);
+    if (!p || !p.imageCount) return;
+    const preload = () => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = `assets/projects/${p.id}/${p.id}-1.webp`;
+      document.head.appendChild(link);
+    };
+    btn.addEventListener("mouseenter", preload, { once: true });
+    btn.addEventListener("touchstart", preload, { once: true });
+  });
 }
 
 function openModal(projectId) {
@@ -276,38 +295,17 @@ function openModal(projectId) {
 
   const carouselEl = overlay.querySelector("#modal-carousel-container");
   if (carouselEl) {
-    resolveProjectImages(p.id).then((imgs) => {
-      new ModalImageCarousel(carouselEl, imgs, p.icon);
-    });
+    const imgs = getProjectImages(p);
+    new ModalImageCarousel(carouselEl, imgs, p.icon);
   }
 }
 
-function resolveProjectImages(id) {
-  return new Promise((resolve) => {
-    const discovered = [];
-    let n = 1;
-    const tryNext = () => {
-      const img = new Image();
-      img.onload = () => {
-        discovered.push(`assets/projects/${id}/${id}-${n}.png`);
-        n++;
-        tryNext();
-      };
-      img.onerror = () => {
-        if (discovered.length > 0) {
-          resolve(discovered);
-        } else {
-          const fallback = `assets/projects/${id}.png`;
-          const chk = new Image();
-          chk.onload = () => resolve([fallback]);
-          chk.onerror = () => resolve([fallback]);
-          chk.src = fallback;
-        }
-      };
-      img.src = `assets/projects/${id}/${id}-${n}.png`;
-    };
-    tryNext();
-  });
+function getProjectImages(p) {
+  const imgs = [];
+  for (let n = 1; n <= p.imageCount; n++) {
+    imgs.push(`assets/projects/${p.id}/${p.id}-${n}.webp`);
+  }
+  return imgs;
 }
 
 class ModalImageCarousel {
@@ -330,9 +328,9 @@ class ModalImageCarousel {
       <div class="modal-carousel">
         <div class="modal-carousel-track-wrapper">
           <div class="modal-carousel-track">
-            ${this.images.map((src) => `
+            ${this.images.map((src, i) => `
               <div class="modal-carousel-slide">
-                <img src="${src}" alt="" class="modal-carousel-img" />
+                <img src="${src}" alt="" class="modal-carousel-img"${i === 0 ? ' loading="eager" fetchpriority="high"' : ' loading="lazy"'} />
                 <div class="image-fallback">
                   <span class="material-symbols-outlined" style="font-size:2.5rem;">${this.icon}</span>
                 </div>
