@@ -294,10 +294,17 @@ function openModal(projectId) {
   document.body.style.overflow = "hidden";
 
   const carouselEl = overlay.querySelector("#modal-carousel-container");
+  let carousel;
   if (carouselEl) {
     const imgs = getProjectImages(p);
-    new ModalImageCarousel(carouselEl, imgs, p.icon);
+    carousel = new ModalImageCarousel(carouselEl, imgs, p.icon);
   }
+
+  const origClose = closeModal;
+  closeModal = () => {
+    if (carousel && carousel._cleanup) carousel._cleanup();
+    origClose();
+  };
 }
 
 function getProjectImages(p) {
@@ -358,9 +365,13 @@ class ModalImageCarousel {
     this.nextBtn = this.container.querySelector(".modal-carousel-next");
     this.dots = this.container.querySelectorAll(".modal-carousel-dot");
 
-    this.slides.forEach((slide) => {
-      slide.style.flex = `0 0 ${this.slideWidth}px`;
-    });
+    this.recalcDimensions();
+
+    const onResize = () => {
+      this.recalcDimensions();
+    };
+    window.addEventListener("resize", onResize);
+    this._cleanup = () => window.removeEventListener("resize", onResize);
 
     this.slides.forEach((slide) => {
       const img = slide.querySelector(".modal-carousel-img");
@@ -385,7 +396,21 @@ class ModalImageCarousel {
     this.track.addEventListener("pointermove", (e) => this.onDragMove(e));
     this.track.addEventListener("pointerup", () => this.onDragEnd());
     this.track.addEventListener("pointercancel", () => this.onDragEnd());
-    this.track.style.touchAction = "pan-y";
+    this.track.addEventListener("touchstart", (e) => this.onDragStart(e), { passive: true });
+    this.track.addEventListener("touchmove", (e) => this.onDragMove(e), { passive: true });
+    this.track.addEventListener("touchend", () => this.onDragEnd());
+    this.track.addEventListener("touchcancel", () => this.onDragEnd());
+    this.track.style.touchAction = "none";
+  }
+
+  recalcDimensions() {
+    this.slideWidth = this.wrapper.getBoundingClientRect().width;
+    this.slides.forEach((slide) => {
+      slide.style.flex = `0 0 ${this.slideWidth}px`;
+    });
+    this.currentTranslate = -this.currentIndex * this.slideWidth;
+    this.prevTranslate = this.currentTranslate;
+    this.track.style.transform = `translateX(${this.currentTranslate}px)`;
   }
 
   goTo(index) {
@@ -393,22 +418,24 @@ class ModalImageCarousel {
     if (index < 0) index = len - 1;
     else if (index >= len) index = 0;
     this.currentIndex = index;
-    this.currentTranslate = -index * this.slideWidth;
-    this.prevTranslate = this.currentTranslate;
-    this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+    this.recalcDimensions();
     this.dots.forEach((d, i) => d.classList.toggle("active", i === index));
+  }
+
+  getClientX(e) {
+    return e.touches ? e.touches[0].clientX : e.clientX;
   }
 
   onDragStart(e) {
     this.isDragging = true;
-    this.startX = e.clientX;
+    this.startX = this.getClientX(e);
     this.track.classList.add("dragging");
     this.track.style.cursor = "grabbing";
   }
 
   onDragMove(e) {
     if (!this.isDragging) return;
-    this.currentTranslate = this.prevTranslate + e.clientX - this.startX;
+    this.currentTranslate = this.prevTranslate + this.getClientX(e) - this.startX;
     this.track.style.transform = `translateX(${this.currentTranslate}px)`;
   }
 
@@ -507,7 +534,11 @@ class ProjectCarousel {
     this.track.addEventListener("pointermove", (e) => this.onDragMove(e));
     this.track.addEventListener("pointerup", () => this.onDragEnd());
     this.track.addEventListener("pointercancel", () => this.onDragEnd());
-    this.track.style.touchAction = "pan-y";
+    this.track.addEventListener("touchstart", (e) => this.onDragStart(e), { passive: true });
+    this.track.addEventListener("touchmove", (e) => this.onDragMove(e), { passive: true });
+    this.track.addEventListener("touchend", () => this.onDragEnd());
+    this.track.addEventListener("touchcancel", () => this.onDragEnd());
+    this.track.style.touchAction = "none";
 
     this.prevBtn.addEventListener("click", () => this.prev());
     this.nextBtn.addEventListener("click", () => this.next());
@@ -543,16 +574,20 @@ class ProjectCarousel {
     });
   }
 
+  getClientX(e) {
+    return e.touches ? e.touches[0].clientX : e.clientX;
+  }
+
   onDragStart(e) {
     this.isDragging = true;
-    this.startX = e.clientX;
+    this.startX = this.getClientX(e);
     this.track.classList.add("dragging");
     this.track.style.cursor = "grabbing";
   }
 
   onDragMove(e) {
     if (!this.isDragging) return;
-    const delta = e.clientX - this.startX;
+    const delta = this.getClientX(e) - this.startX;
     this.currentTranslate = this.prevTranslate + delta;
     this.track.style.transform = `translateX(${this.currentTranslate}px)`;
   }

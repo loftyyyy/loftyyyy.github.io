@@ -43,21 +43,32 @@
           <span class="moon-icon">dark_mode</span>
           <span class="sun-icon">light_mode</span>
         </button>
-        <button class="material-symbols-outlined" data-icon="menu">menu</button>
+        <button class="material-symbols-outlined text-primary" id="mobile-menu-btn">menu</button>
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div id="mobile-nav-drawer" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-md hidden md:hidden">
+    <div class="flex flex-col items-center justify-center h-full space-y-12">
+      <button class="material-symbols-outlined text-primary absolute top-6 right-6 text-3xl" id="mobile-nav-close">close</button>
+      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#about" data-mobile-link>About</a>
+      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#work" data-mobile-link>Work</a>
+      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#skills" data-mobile-link>Skills</a>
+      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#contact" data-mobile-link>Contact</a>
+    </div>
+  </div>
 
   <main class="grid-texture">
 
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center px-gutter max-w-container-max mx-auto pt-20">
       <div class="space-y-4">
-        <h1 class="font-h1 text-h1 md:text-[120px] leading-tight text-on-background">
+        <h1 class="font-h1 text-h1-mobile md:text-h1 lg:text-[120px] leading-tight text-on-background">
           RHO<br />
           <span class="md:ml-24 text-primary">ALPHONCE</span>
         </h1>
-        <p class="font-code text-body-lg text-tertiary flex items-center">
+        <p class="font-code text-body-md md:text-body-lg text-tertiary flex items-center">
           <span class="blinking-cursor">▍ cs student · backend developer · researcher</span>
         </p>
         <div class="pt-12">
@@ -69,11 +80,11 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-32 px-gutter max-w-container-max mx-auto" id="about">
-      <div class="mb-12">
+    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="about">
+      <div class="mb-8 md:mb-12">
         <span class="font-code text-label-caps text-secondary">// ABOUT</span>
       </div>
-      <div class="grid md:grid-cols-2 gap-16">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16">
         <div class="space-y-6">
           <p class="font-body-lg leading-relaxed">
             Backend-focused Computer Science student specializing in distributed systems, system design, and Spring Boot. I build things that scale — from JWT-authenticated REST APIs and Redis-backed rate limiters to knowledge distillation pipelines optimized for edge deployment. I care about correctness, performance, and systems that don't fall over under pressure.
@@ -95,8 +106,8 @@
     </section>
 
     <!-- Work Section -->
-    <section class="py-32 px-gutter max-w-container-max mx-auto" id="work">
-      <div class="mb-12">
+    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="work">
+      <div class="mb-8 md:mb-12">
         <span class="font-code text-label-caps text-secondary">// WORK</span>
       </div>
       <div id="projects-grid">
@@ -111,25 +122,25 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="py-32 px-gutter max-w-container-max mx-auto" id="skills">
-      <div class="mb-12">
+    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="skills">
+      <div class="mb-8 md:mb-12">
         <span class="font-code text-label-caps text-secondary">// SKILLS</span>
       </div>
-      <div id="skills-grid" class="grid md:grid-cols-3 gap-12"></div>
+      <div id="skills-grid" class="grid md:grid-cols-3 gap-8 md:gap-12"></div>
     </section>
 
     <!-- Certifications Section -->
-    <section class="py-32 px-gutter max-w-container-max mx-auto" id="certifications">
-      <div class="mb-12">
+    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="certifications">
+      <div class="mb-8 md:mb-12">
         <span class="font-code text-label-caps text-secondary">// CERTIFICATIONS</span>
       </div>
-      <div id="certifications-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+      <div id="certifications-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"></div>
     </section>
 
     <!-- Contact Section -->
-    <section class="py-48 px-gutter max-w-container-max mx-auto text-center" id="contact">
-    <div class="max-w-2xl mx-auto space-y-8">
-        <h2 class="font-h1 text-h1 text-on-background">Let's build something.</h2>
+    <section class="py-24 md:py-48 px-gutter max-w-container-max mx-auto text-center" id="contact">
+    <div class="max-w-2xl mx-auto space-y-6 md:space-y-8">
+        <h2 class="font-h1 text-h1-mobile md:text-h1 text-on-background">Let's build something.</h2>
         <div class="pt-8">
         <a class="font-h2 text-h2 text-secondary pink-underline" href="mailto:rho@sysarch.engineer">rho@sysarch.engineer</a>
         </div>
@@ -176,6 +187,20 @@
 
     if (localStorage.getItem('theme') === 'light') {
       body.classList.add('light-mode');
+    }
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navDrawer = document.getElementById('mobile-nav-drawer');
+    const navClose = document.getElementById('mobile-nav-close');
+    if (menuBtn && navDrawer) {
+      const open = () => navDrawer.classList.remove('hidden');
+      const close = () => navDrawer.classList.add('hidden');
+      menuBtn.addEventListener('click', open);
+      if (navClose) navClose.addEventListener('click', close);
+      navDrawer.addEventListener('click', (e) => { if (e.target === navDrawer) close(); });
+      navDrawer.querySelectorAll('[data-mobile-link]').forEach((link) => {
+        link.addEventListener('click', close);
+      });
     }
 </script>
 </body>

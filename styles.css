@@ -223,6 +223,7 @@ html {
   gap: 32px;
   align-items: stretch;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: none;
 }
 
 .carousel-track.dragging {
@@ -245,6 +246,13 @@ html {
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   line-height: 1.4 !important;
+}
+
+@media (max-width: 767px) {
+  .carousel-btn {
+    padding: 12px 20px !important;
+    font-size: 11px !important;
+  }
 }
 
 .carousel-btn:hover {
@@ -322,6 +330,12 @@ body.light-mode .carousel-btn:hover {
   padding: 24px;
 }
 
+@media (max-width: 767px) {
+  .modal-overlay {
+    padding: 8px;
+  }
+}
+
 body.light-mode .modal-overlay {
   background-color: rgba(248, 248, 242, 0.8);
 }
@@ -337,6 +351,13 @@ body.light-mode .modal-overlay {
   scrollbar-width: none;
   -ms-overflow-style: none;
   position: relative;
+}
+
+@media (max-width: 767px) {
+  .modal-content {
+    border-left: none;
+    border-top: 4px solid var(--primary);
+  }
 }
 
 .modal-content::-webkit-scrollbar {
@@ -373,6 +394,7 @@ body.light-mode .modal-overlay {
   display: flex;
   height: 100%;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: none;
 }
 
 .modal-carousel-track.dragging {
