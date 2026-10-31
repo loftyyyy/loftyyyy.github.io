@@ -1,207 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Rho Alphonce Jornadal | Portfolio</title>
-  <link href="public/favicon.ico" rel="icon" sizes="48x48" />
-  <link href="public/favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
-  <link href="public/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
-  <link href="public/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
-  <link href="public/site.webmanifest" rel="manifest" />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700;800&amp;family=JetBrains+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-  <link href="dist/output.css" rel="stylesheet" />
-  <link href="styles.css" rel="stylesheet" />
-  <style>
-    html { scrollbar-width: none; }
-    html::-webkit-scrollbar { display: none; }
-  </style>
-  <script defer src="main.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rho Alphonce Jornadal – Junior Java / Spring Boot Developer</title>
+<meta name="description" content="Rho Alphonce Jornadal is a third-year Computer Science student in Davao City, building fast, secure APIs with Java and Spring Boot.">
+<link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E8EDF1; --surface:#F6F8FA; --ink:#0F1B2D; --muted:#4D5B6E; --line:#C6D0DA; --accent:#D4500F;
+  --sans:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0C1522;--surface:#142033;--ink:#E6ECF3;--muted:#9AA9BB;--line:#26364D;--accent:#FF8A4C;color-scheme:dark}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;top:-100px;left:12px;z-index:10;background:var(--surface);color:var(--ink);padding:10px 16px;border:1px solid var(--line);border-radius:4px;font-weight:600}
+.skip-link:focus{top:12px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+header.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero-copy{min-width:0}
+h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:.98;letter-spacing:-.03em;font-weight:800;margin:0 0 20px}
+.lede{font-size:1.15rem;color:var(--muted);max-width:30em;margin:0 0 24px}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;font-weight:600}
+.resp{background:var(--ink);color:var(--bg);border-radius:6px;padding:20px 22px;font-family:var(--mono);font-size:.82rem;line-height:1.7;overflow-x:auto;margin:0;max-width:100%}
+.resp:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.resp .req{opacity:.7}
+.resp .st{color:#6EE7B7}
+.resp .k{opacity:.65}
+.resp .v{color:#FFB07A}
+@media (prefers-color-scheme:dark){
+  .resp{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 24px;font-weight:800}
+.proj{display:grid;grid-template-columns:1fr 260px;gap:12px 40px;padding:22px 0;border-bottom:1px solid var(--line)}
+.proj:first-of-type{padding-top:0}
+.proj:last-of-type{border-bottom:0;padding-bottom:0}
+.proj>div{min-width:0}
+h3{font-size:1.2rem;margin:0 0 2px;font-weight:600}
+.stack{color:var(--muted);font-size:.9rem;margin:0 0 8px}
+.proj p{margin:0 0 8px;max-width:38em}
+.num{font-family:var(--mono);font-size:.85rem;color:var(--muted);align-self:start;border-left:3px solid var(--accent);padding:2px 0 2px 14px}
+.num b{display:block;color:var(--ink);font-weight:500;font-size:1rem}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.role{margin:0 0 4px;font-weight:600}
+.when{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+ul{margin:0;padding-left:1.1em}
+li{margin-bottom:6px;max-width:38em}
+dl{margin:0;display:grid;grid-template-columns:110px 1fr;gap:8px 16px}
+dt{color:var(--muted)}
+dd{margin:0}
+.certs li{display:flex;justify-content:space-between;gap:12px;max-width:none;list-style:none;margin-left:-1.1em}
+.certs span{color:var(--muted);font-size:.9rem;white-space:nowrap}
+.more{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.more h3{font-size:1rem;font-weight:600;margin:0 0 4px;color:var(--muted)}
+.more-list{list-style:none;margin:0;padding:0}
+.more-list li{margin:0;padding:14px 0;border-bottom:1px solid var(--line);max-width:none}
+.more-list li:last-child{border-bottom:0;padding-bottom:0}
+.more-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 4px}
+.more-line a{font-weight:600}
+.more-stack{color:var(--muted);font-size:.82rem;font-family:var(--mono)}
+.more-desc{margin:0;max-width:46em;font-size:.95rem}
+footer{padding:40px 0 56px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:baseline}
+footer strong{font-size:1.4rem;letter-spacing:-.02em}
+footer span{overflow-wrap:anywhere}
+@media (max-width:760px){
+  header.hero{grid-template-columns:1fr;padding:48px 0 40px}
+  .proj,.cols{grid-template-columns:1fr}
+  dl{grid-template-columns:1fr}
+  dt{margin-top:6px}
+}
+</style>
 </head>
-<body class="bg-background text-on-background transition-colors duration-300 font-body-md overflow-x-hidden">
-
-  <!-- TopNavBar -->
-  <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b border-outline-variant">
-    <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
-      <a class="font-h2 text-h2 text-primary" href="#">rho.dev</a>
-
-      <!-- Desktop Links -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a class="font-code text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#about">About</a>
-        <a class="font-code text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#work">Work</a>
-        <a class="font-code text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#skills">Skills</a>
-        <a class="font-code text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
-        <button class="theme-toggle material-symbols-outlined text-primary hover:scale-110 transition-transform active:scale-95" id="desktop-theme-toggle">
-          <span class="moon-icon">dark_mode</span>
-          <span class="sun-icon">light_mode</span>
-        </button>
-      </div>
-
-      <!-- Mobile Toggle -->
-      <div class="md:hidden flex items-center gap-4">
-        <button class="theme-toggle material-symbols-outlined text-primary" id="mobile-theme-toggle">
-          <span class="moon-icon">dark_mode</span>
-          <span class="sun-icon">light_mode</span>
-        </button>
-        <button class="material-symbols-outlined text-primary" id="mobile-menu-btn">menu</button>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-copy">
+      <h1>Rho Alphonce Jornadal</h1>
+      <p class="lede">Third-year Computer Science student building backend systems with Java and Spring Boot, looking for a junior Java / Spring Boot developer role. I care about fast, secure APIs, and I measure them.</p>
+      <div class="links">
+        <a href="https://github.com/loftyyyy">GitHub<span class="sr-only"> profile</span></a>
+        <a href="https://linkedin.com/in/loftyyyy">LinkedIn<span class="sr-only"> profile</span></a>
+        <a href="mailto:rhoalphonce.jornadal@gmail.com">Email me<span class="sr-only"> at rhoalphonce.jornadal@gmail.com</span></a>
+        <a href="/resume.pdf">Resume<span class="sr-only"> (PDF)</span></a>
       </div>
     </div>
-  </nav>
+    <pre class="resp" role="region" aria-label="URL shortener load test results" tabindex="0"><span class="req">GET /url-shortener/{code}</span>
+<span class="st">302 Found</span>
+<span class="k">requests</span>   <span class="v">410,451</span>
+<span class="k">throughput</span> <span class="v">8,207 req/s</span>
+<span class="k">p95</span>        <span class="v">3.49 ms</span>
+<span class="k">errors</span>     <span class="v">0%</span>
+<span class="k">load</span>       200 virtual users, k6</pre>
+  </header>
 
-  <!-- Mobile Nav Drawer -->
-  <div id="mobile-nav-drawer" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-md hidden md:hidden">
-    <div class="flex flex-col items-center justify-center h-full space-y-12">
-      <button class="material-symbols-outlined text-primary absolute top-6 right-6 text-3xl" id="mobile-nav-close">close</button>
-      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#about" data-mobile-link>About</a>
-      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#work" data-mobile-link>Work</a>
-      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#skills" data-mobile-link>Skills</a>
-      <a class="font-code text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#contact" data-mobile-link>Contact</a>
-    </div>
-  </div>
-
-  <main class="grid-texture">
-
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center px-gutter max-w-container-max mx-auto pt-20">
-      <div class="space-y-4">
-        <h1 class="font-h1 text-h1-mobile md:text-h1 lg:text-[120px] leading-tight text-on-background">
-          RHO<br />
-          <span class="md:ml-24 text-primary">ALPHONCE</span>
-        </h1>
-        <p class="font-code text-body-md md:text-body-lg text-tertiary flex items-center">
-          <span class="blinking-cursor">▍ cs student · backend developer · researcher</span>
-        </p>
-        <div class="pt-12">
-          <a class="inline-block px-8 py-4 border border-primary text-primary font-code hover:bg-primary/10 transition-all duration-300 active:scale-95 group" href="#work">
-            VIEW_REPOS<span class="opacity-0 group-hover:opacity-100 transition-opacity">_</span>
-          </a>
+  <main id="main">
+    <section id="projects">
+      <h2>Projects</h2>
+      <article class="proj">
+        <div>
+          <h3><a href="https://github.com/loftyyyy/URL-Shortener">URL Shortener API<span class="sr-only"> on GitHub</span></a></h3>
+          <p class="stack">Spring Boot, PostgreSQL, Redis, k6 · Oct 2026</p>
+          <p>A RESTful service for creating short links and redirecting them. Redirects use the Cache-Aside pattern with Redis, which takes read load off the database and keeps latency low.</p>
         </div>
+        <div class="num"><b>8,207 req/s</b>3.49 ms p95, 0% errors in local k6 testing at 200 users</div>
+      </article>
+      <article class="proj">
+        <div>
+          <h3><a href="https://github.com/loftyyyy/19wpm">19wpm<span class="sr-only"> on GitHub</span></a></h3>
+          <p class="stack">TypeScript, Spring Boot, PostgreSQL, Redis, WebSockets, Docker, Azure · May 2026</p>
+          <p>A Monkeytype-inspired typing platform with JWT auth (including token blocklisting) and GitHub and Google OAuth2 login. Multiplayer race mode runs on WebSockets/STOMP with Redis-backed ephemeral state, containerized and deployed on Azure Container Apps.</p>
+        </div>
+        <div class="num"><b>2.5 ms / 5.3 ms</b>p95 on reads / writes, 0% errors across ~27,600 requests (median of 3 local k6 runs)</div>
+      </article>
+      <article class="proj">
+        <div>
+          <h3><a href="https://github.com/loftyyyy/PharmaTrack">PharmaTrack<span class="sr-only"> on GitHub</span></a></h3>
+          <p class="stack">TypeScript, Spring Boot, MySQL · May 2025</p>
+          <p>A pharmacy management system covering medicine inventory, sales transactions and customer records, with 20+ REST endpoints.</p>
+        </div>
+        <div class="num"><b>183 tests</b>JUnit 5, Mockito, MockMvc and H2, covering JWT handling and the auth, product, role and stock APIs</div>
+      </article>
+
+      <div class="more">
+        <h3>More projects</h3>
+        <ul class="more-list">
+          <li>
+            <p class="more-line"><a href="https://github.com/loftyyyy/relay">Relay<span class="sr-only"> on GitHub</span></a> <span class="more-stack">Java, Spring Boot, WebSockets, React, TypeScript</span></p>
+            <p class="more-desc">Real-time chat application with a Spring Boot WebSocket/STOMP backend, JWT-authenticated handshakes, presence tracking, and a React/TypeScript frontend.</p>
+          </li>
+          <li>
+            <p class="more-line"><a href="https://github.com/loftyyyy/LSRSV2">LSRS<span class="sr-only"> on GitHub</span></a> <span class="more-stack">Laravel, PHP, MySQL, Tailwind</span></p>
+            <p class="more-desc">Gown and suit rental management system with a reservation lifecycle, deposit and invoice workflows, and PHPUnit feature tests.</p>
+          </li>
+          <li>
+            <p class="more-line"><a href="https://github.com/loftyyyy/MalwareClassification.streamlit">MalVote<span class="sr-only"> on GitHub</span></a> <span class="more-stack">Python, FastAPI, React, ML</span></p>
+            <p class="more-desc">Android APK malware classifier using a soft-voting ensemble, 96.05% accuracy across 5 threat classes, with a FastAPI backend and React dashboard.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="about">
-      <div class="mb-8 md:mb-12">
-        <span class="font-code text-label-caps text-secondary">// ABOUT</span>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8 md:gap-16">
-        <div class="space-y-6">
-          <p class="font-body-lg leading-relaxed">
-            Backend-focused Computer Science student specializing in distributed systems, system design, and Spring Boot. I build things that scale — from JWT-authenticated REST APIs and Redis-backed rate limiters to knowledge distillation pipelines optimized for edge deployment. I care about correctness, performance, and systems that don't fall over under pressure.
-          </p>
-          <p class="font-body-md text-on-surface-variant">
-            Currently pursuing my degree while working on real-world projects spanning cybersecurity, deep learning research, and full-stack backend architecture. I'm at my best when the problem is complex, the constraints are real, and the solution has to actually hold up.
-          </p>
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="role">Cybersecurity Intern / Penetration Tester, Infnity Hub</p>
+      <p class="when">Davao City · Jul – Aug 2026</p>
+      <ul>
+        <li>Found an IDOR vulnerability (CWE-639), an XSS flaw, and a sensitive data exposure (CWE-200) that leaked bcrypt hashes in API responses, while testing a production HRMS.</li>
+        <li>Ran automated and manual tests with OWASP ZAP and Burp Suite (SQL injection, LFI/RFI, SSTI) and documented each finding with a recommended fix.</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <div class="cols">
+        <div>
+          <h2>Skills</h2>
+          <dl>
+            <dt>Backend</dt><dd>Java, Spring Boot, Spring Security (JWT, OAuth2), REST APIs, PHP/Laravel, Python, Go, C++, C#, distributed systems, system design, concurrency, algorithms</dd>
+            <dt>Data</dt><dd>MySQL, PostgreSQL, Redis, Flyway, caching</dd>
+            <dt>DevOps &amp; testing</dt><dd>Git, GitHub, Docker, Azure Container Apps, Postman, k6, JUnit, Mockito, Vim</dd>
+            <dt>Security</dt><dd>OWASP ZAP, Burp Suite, authentication and authorization</dd>
+          </dl>
         </div>
-        <div class="bg-surface-container p-base border border-outline-variant font-code text-body-md">
-          <div class="space-y-2 text-secondary">
-            <p>// quick stats</p>
-            <p>→ status: <span class="text-tertiary">Looking for internships</span></p>
-            <p>→ locale: <span class="text-tertiary">Davao City</span></p>
-            <p>→ focusing: <span class="text-tertiary">SpringBoot / Distributed Systems</span></p>
-            <p>→ coffee: <span class="text-tertiary">Spanish Latte</span></p>
-          </div>
+        <div>
+          <h2>Education &amp; certifications</h2>
+          <p class="role">BS Computer Science, University of Mindanao</p>
+          <p class="when">Matina, Davao City · Aug 2023 – expected Aug 2027</p>
+          <ul class="certs" role="list">
+            <li>IT Specialist: Cybersecurity <span>May 2026</span></li>
+            <li>Cloud Computing Fundamentals, IBM <span>Mar 2026</span></li>
+            <li>Cybersecurity Fundamentals, IBM <span>Jul 2025</span></li>
+            <li>GitHub Foundations <span>Jun 2025</span></li>
+            <li>IT Specialist: Databases <span>May 2024</span></li>
+          </ul>
         </div>
       </div>
     </section>
-
-    <!-- Work Section -->
-    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="work">
-      <div class="mb-8 md:mb-12">
-        <span class="font-code text-label-caps text-secondary">// WORK</span>
-      </div>
-      <div id="projects-grid">
-        <div class="carousel-viewport" tabindex="0" role="region" aria-label="Project carousel">
-          <div class="carousel-track" role="list"></div>
-        </div>
-        <div class="flex justify-center gap-4 pt-8">
-          <button class="carousel-btn px-8 py-4" id="carousel-prev" aria-label="Previous project">← PREV</button>
-          <button class="carousel-btn px-8 py-4" id="carousel-next" aria-label="Next project">NEXT →</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="skills">
-      <div class="mb-8 md:mb-12">
-        <span class="font-code text-label-caps text-secondary">// SKILLS</span>
-      </div>
-      <div id="skills-grid" class="grid md:grid-cols-3 gap-8 md:gap-12"></div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="py-20 md:py-32 px-gutter max-w-container-max mx-auto" id="certifications">
-      <div class="mb-8 md:mb-12">
-        <span class="font-code text-label-caps text-secondary">// CERTIFICATIONS</span>
-      </div>
-      <div id="certifications-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"></div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="py-24 md:py-48 px-gutter max-w-container-max mx-auto text-center" id="contact">
-    <div class="max-w-2xl mx-auto space-y-6 md:space-y-8">
-        <h2 class="font-h1 text-h1-mobile md:text-h1 text-on-background">Let's build something.</h2>
-        <div class="pt-8">
-        <a class="font-h2 text-h2 text-secondary pink-underline" href="mailto:rho@sysarch.engineer">rho@sysarch.engineer</a>
-        </div>
-        <div class="flex justify-center gap-12 pt-16">
-        <a class="group" target="_blank" href="https://www.github.com/loftyyyy">
-            <img alt="GitHub" class="w-12 h-12 grayscale hover:grayscale-0 transition-all"
-            src="https://api.iconify.design/mdi:github.svg?color=%230A66C2" />
-        </a>
-        <a class="group" target="_blank" href="https://www.linkedin.com/in/loftyyyy/">
-            <img alt="LinkedIn" class="w-12 h-12 grayscale hover:grayscale-0 transition-all"
-            src="https://api.iconify.design/mdi:linkedin.svg?color=%230A66C2" />
-        </a>
-        </div>
-    </div>
-    </section>
-
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-surface-container-lowest border-t border-outline-variant">
-    <div class="flex flex-col md:flex-row justify-between items-center px-gutter py-8 max-w-container-max mx-auto">
-      <div class="flex items-center gap-2 font-code text-label-caps text-secondary">
-        <span class="text-green-400">●</span> RHO ALPHONCE. STATUS: OPERATIONAL
-      </div>
-      <div class="font-code text-label-caps text-outline mt-4 md:mt-0">
-        © 2026 SYSTEM_ARCHITECT | BUILT_WITH_PRECISION
-      </div>
-    </div>
+  <footer>
+    <strong>Let’s talk about a junior backend role.</strong>
+    <span><a href="mailto:rhoalphonce.jornadal@gmail.com">rhoalphonce.jornadal@gmail.com</a> · <a href="https://github.com/loftyyyy">GitHub</a> · <a href="https://linkedin.com/in/loftyyyy">LinkedIn</a></span>
   </footer>
-
-<script>
-    const desktopToggle = document.getElementById('desktop-theme-toggle');
-    const mobileToggle = document.getElementById('mobile-theme-toggle');
-    const body = document.body;
-
-    function toggleTheme() {
-      body.classList.toggle('light-mode');
-      const isLight = body.classList.contains('light-mode');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    }
-
-    if (desktopToggle) desktopToggle.addEventListener('click', toggleTheme);
-    if (mobileToggle) mobileToggle.addEventListener('click', toggleTheme);
-
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.add('light-mode');
-    }
-
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navDrawer = document.getElementById('mobile-nav-drawer');
-    const navClose = document.getElementById('mobile-nav-close');
-    if (menuBtn && navDrawer) {
-      const open = () => navDrawer.classList.remove('hidden');
-      const close = () => navDrawer.classList.add('hidden');
-      menuBtn.addEventListener('click', open);
-      if (navClose) navClose.addEventListener('click', close);
-      navDrawer.addEventListener('click', (e) => { if (e.target === navDrawer) close(); });
-      navDrawer.querySelectorAll('[data-mobile-link]').forEach((link) => {
-        link.addEventListener('click', close);
-      });
-    }
-</script>
+</div>
 </body>
 </html>

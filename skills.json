@@ -1,16 +1,44 @@
 {
   "categories": [
     {
-      "name": "Languages",
-      "items": ["Java", "", "Python", "Zig", "TypeScript"]
+      "name": "Backend",
+      "items": [
+        "Java",
+        "Spring Boot",
+        "Spring Security (JWT, OAuth2)",
+        "REST APIs",
+        "PHP/Laravel",
+        "Python",
+        "Go",
+        "C++",
+        "C#",
+        "Distributed systems",
+        "System design",
+        "Concurrency",
+        "Algorithms"
+      ]
     },
     {
-      "name": "Tools &amp; Frameworks",
-      "items": ["Docker", "PostgreSQL", "Redis", "Linux Kernel", "Git"]
+      "name": "Data",
+      "items": ["MySQL", "PostgreSQL", "Redis", "Flyway", "Caching"]
     },
     {
-      "name": "Concepts",
-      "items": ["Dist Systems", "Concurrency", "Algorithms", "Compilers"]
+      "name": "DevOps & testing",
+      "items": [
+        "Git",
+        "GitHub",
+        "Docker",
+        "Azure Container Apps",
+        "Postman",
+        "k6",
+        "JUnit",
+        "Mockito",
+        "Vim"
+      ]
+    },
+    {
+      "name": "Security",
+      "items": ["OWASP ZAP", "Burp Suite", "Authentication and authorization"]
     }
   ]
 }

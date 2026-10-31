@@ -1,22 +1,32 @@
 [
   {
-    "title": "CKA: Certified Kubernetes Administrator",
-    "issuer": "Cloud Native Computing Foundation (CNCF)",
-    "year": 2024
+    "title": "IT Specialist: Cybersecurity",
+    "issuer": "Certiport, a Pearson VUE business",
+    "date": "May 2026",
+    "link": "https://www.credly.com/badges/d3b6d6ce-0b85-49cf-bd5e-19d04fddbaaf"
   },
   {
-    "title": "AWS Certified Solutions Architect",
-    "issuer": "Amazon Web Services",
-    "year": 2023
+    "title": "Cloud Computing Fundamentals",
+    "issuer": "IBM SkillsBuild",
+    "date": "Mar 2026",
+    "link": "https://www.credly.com/badges/19b4ab69-3aa1-4b18-b487-e4c7161adef5"
   },
   {
-    "title": "CompTIA Security+",
-    "issuer": "CompTIA",
-    "year": 2023
+    "title": "Cybersecurity Fundamentals",
+    "issuer": "IBM SkillsBuild",
+    "date": "Jul 2025",
+    "link": "https://www.credly.com/badges/769ae05b-6638-4e56-b58b-1b73a42e7c10"
   },
   {
-    "title": "Meta Back-End Developer",
-    "issuer": "Coursera",
-    "year": 2022
+    "title": "GitHub Foundations",
+    "issuer": "GitHub",
+    "date": "Jun 2025",
+    "link": "https://www.credly.com/badges/ddf5cbea-5832-42af-8e2c-2e1d428f6de2"
+  },
+  {
+    "title": "IT Specialist: Databases",
+    "issuer": "Certiport, a Pearson VUE business",
+    "date": "May 2024",
+    "link": "https://www.credly.com/badges/3f14ab8f-b869-40cf-b693-2f3dba86d821"
   }
 ]

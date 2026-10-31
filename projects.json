@@ -1,30 +1,62 @@
 [
   {
-    "title": "NEURAL_SHARD",
-    "description": "Distributed vector database optimized for edge deployment. Built using Raft consensus and a custom persistent storage engine.",
-    "icon": "open_in_new",
-    "tags": ["rust", "grpc", "rocksdb"],
-    "cols": 8
+    "title": "URL Shortener API",
+    "date": "Oct 2026",
+    "stack": ["Spring Boot", "PostgreSQL", "Redis", "k6"],
+    "description": "A RESTful service for creating short links and redirecting them. Redirects use the Cache-Aside pattern with Redis, which takes read load off the database and keeps latency low.",
+    "metric": "8,207 req/s",
+    "link": "https://github.com/loftyyyy/URL-Shortener",
+    "demoLink": null,
+    "featured": true
   },
   {
-    "title": "GHOST_SHELL",
-    "description": "Minimalist terminal emulator with integrated markdown preview and Git status visualization.",
-    "icon": "terminal",
-    "tags": ["cpp", "opengl"],
-    "cols": 4
+    "title": "19wpm",
+    "date": "May 2026",
+    "stack": ["TypeScript", "Spring Boot", "PostgreSQL", "Redis", "WebSockets", "Docker", "Azure"],
+    "description": "A Monkeytype-inspired typing platform with JWT auth (including token blocklisting) and GitHub and Google OAuth2 login. Multiplayer race mode runs on WebSockets/STOMP with Redis-backed ephemeral state, containerized and deployed on Azure Container Apps.",
+    "metric": "2.5 ms / 5.3 ms p95",
+    "link": "https://github.com/loftyyyy/19wpm",
+    "demoLink": "https://19wpm.vercel.app/",
+    "featured": true
   },
   {
-    "title": "HELIOS_API",
-    "description": "Typescript SDK for autonomous drone navigation systems.",
-    "icon": "api",
-    "tags": ["typescript"],
-    "cols": 4
+    "title": "PharmaTrack",
+    "date": "May 2025",
+    "stack": ["TypeScript", "Spring Boot", "MySQL"],
+    "description": "A pharmacy management system covering medicine inventory, sales transactions and customer records, with 20+ REST endpoints.",
+    "metric": "183 tests",
+    "link": "https://github.com/loftyyyy/PharmaTrack",
+    "demoLink": null,
+    "featured": true
   },
   {
-    "title": "SYNX_OS",
-    "description": "Experimental microkernel written in Zig, targeting RISC-V architecture for educational research.",
-    "icon": "memory",
-    "tags": ["zig", "riscv"],
-    "cols": 8
+    "title": "Relay",
+    "date": null,
+    "stack": ["Java", "Spring Boot", "WebSockets", "React", "TypeScript"],
+    "description": "Real-time chat application with a Spring Boot WebSocket/STOMP backend, JWT-authenticated handshakes, presence tracking, and a React/TypeScript frontend.",
+    "metric": null,
+    "link": "https://github.com/loftyyyy/relay",
+    "demoLink": "https://relay-three-phi.vercel.app/",
+    "featured": false
+  },
+  {
+    "title": "LSRS",
+    "date": null,
+    "stack": ["Laravel", "PHP", "MySQL", "Tailwind"],
+    "description": "Gown and suit rental management system with a reservation lifecycle, deposit and invoice workflows, and PHPUnit feature tests.",
+    "metric": null,
+    "link": "https://github.com/loftyyyy/LSRSV2",
+    "demoLink": null,
+    "featured": false
+  },
+  {
+    "title": "MalVote",
+    "date": null,
+    "stack": ["Python", "FastAPI", "React", "ML"],
+    "description": "Android APK malware classifier using a soft-voting ensemble, 96.05% accuracy across 5 threat classes, with a FastAPI backend and React dashboard.",
+    "metric": "96.05% accuracy",
+    "link": "https://github.com/loftyyyy/MalwareClassification.streamlit",
+    "demoLink": null,
+    "featured": false
   }
 ]
