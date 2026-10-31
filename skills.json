@@ -1,44 +1,39 @@
 {
   "categories": [
     {
+      "name": "Languages",
+      "items": ["Java", "PHP", "Python", "Go", "C++", "C#", "TypeScript"]
+    },
+    {
       "name": "Backend",
       "items": [
-        "Java",
         "Spring Boot",
         "Spring Security (JWT, OAuth2)",
         "REST APIs",
-        "PHP/Laravel",
-        "Python",
-        "Go",
-        "C++",
-        "C#",
-        "Distributed systems",
-        "System design",
-        "Concurrency",
-        "Algorithms"
+        "WebSockets/STOMP",
+        "Laravel",
+        "FastAPI"
       ]
     },
     {
       "name": "Data",
-      "items": ["MySQL", "PostgreSQL", "Redis", "Flyway", "Caching"]
+      "items": ["PostgreSQL", "MySQL", "Redis", "Flyway", "H2", "Caching"]
     },
     {
-      "name": "DevOps & testing",
-      "items": [
-        "Git",
-        "GitHub",
-        "Docker",
-        "Azure Container Apps",
-        "Postman",
-        "k6",
-        "JUnit",
-        "Mockito",
-        "Vim"
-      ]
+      "name": "Testing",
+      "items": ["JUnit 5", "Mockito", "MockMvc", "PHPUnit", "k6", "Postman"]
     },
     {
       "name": "Security",
       "items": ["OWASP ZAP", "Burp Suite", "Authentication and authorization"]
+    },
+    {
+      "name": "DevOps",
+      "items": ["Docker", "Azure Container Apps", "Git", "GitHub", "Vim"]
+    },
+    {
+      "name": "Concepts",
+      "items": ["Distributed systems", "System design", "Concurrency", "Algorithms"]
     }
   ]
 }

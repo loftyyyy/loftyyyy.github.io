@@ -51,6 +51,9 @@ h2{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 24px;font-weight:800}
 .proj>div{min-width:0}
 h3{font-size:1.2rem;margin:0 0 2px;font-weight:600}
 .stack{color:var(--muted);font-size:.9rem;margin:0 0 8px}
+.live{margin:0;font-family:var(--mono);font-size:.82rem}
+.proj .live{margin:0}
+.live a{text-decoration-thickness:1px}
 .proj p{margin:0 0 8px;max-width:38em}
 .num{font-family:var(--mono);font-size:.85rem;color:var(--muted);align-self:start;border-left:3px solid var(--accent);padding:2px 0 2px 14px}
 .num b{display:block;color:var(--ink);font-weight:500;font-size:1rem}
@@ -62,6 +65,9 @@ li{margin-bottom:6px;max-width:38em}
 dl{margin:0;display:grid;grid-template-columns:110px 1fr;gap:8px 16px}
 dt{color:var(--muted)}
 dd{margin:0}
+.skills{grid-template-columns:118px 1fr;gap:14px 20px}
+.skills dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;padding-top:4px}
+.skills dd{max-width:32em}
 .certs li{display:flex;justify-content:space-between;gap:12px;max-width:none;list-style:none;margin-left:-1.1em}
 .certs span{color:var(--muted);font-size:.9rem;white-space:nowrap}
 .more{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
@@ -81,6 +87,9 @@ footer span{overflow-wrap:anywhere}
   .proj,.cols{grid-template-columns:1fr}
   dl{grid-template-columns:1fr}
   dt{margin-top:6px}
+  .skills{grid-template-columns:1fr;gap:0}
+  .skills dt{margin-top:14px;padding-top:0}
+  .skills dd{margin:2px 0 0;max-width:none}
 }
 </style>
 </head>
@@ -123,6 +132,7 @@ footer span{overflow-wrap:anywhere}
           <h3><a href="https://github.com/loftyyyy/19wpm">19wpm<span class="sr-only"> on GitHub</span></a></h3>
           <p class="stack">TypeScript, Spring Boot, PostgreSQL, Redis, WebSockets, Docker, Azure · May 2026</p>
           <p>A Monkeytype-inspired typing platform with JWT auth (including token blocklisting) and GitHub and Google OAuth2 login. Multiplayer race mode runs on WebSockets/STOMP with Redis-backed ephemeral state, containerized and deployed on Azure Container Apps.</p>
+          <p class="live"><a href="https://19wpm.vercel.app/">Live demo<span class="sr-only"> of 19wpm</span><span aria-hidden="true"> ↗</span></a></p>
         </div>
         <div class="num"><b>2.5 ms / 5.3 ms</b>p95 on reads / writes, 0% errors across ~27,600 requests (median of 3 local k6 runs)</div>
       </article>
@@ -168,11 +178,14 @@ footer span{overflow-wrap:anywhere}
       <div class="cols">
         <div>
           <h2>Skills</h2>
-          <dl>
-            <dt>Backend</dt><dd>Java, Spring Boot, Spring Security (JWT, OAuth2), REST APIs, PHP/Laravel, Python, Go, C++, C#, distributed systems, system design, concurrency, algorithms</dd>
-            <dt>Data</dt><dd>MySQL, PostgreSQL, Redis, Flyway, caching</dd>
-            <dt>DevOps &amp; testing</dt><dd>Git, GitHub, Docker, Azure Container Apps, Postman, k6, JUnit, Mockito, Vim</dd>
+          <dl class="skills">
+            <dt>Languages</dt><dd>Java, PHP, Python, Go, C++, C#, TypeScript</dd>
+            <dt>Backend</dt><dd>Spring Boot, Spring Security (JWT, OAuth2), REST APIs, WebSockets/STOMP, Laravel, FastAPI</dd>
+            <dt>Data</dt><dd>PostgreSQL, MySQL, Redis, Flyway, H2, caching</dd>
+            <dt>Testing</dt><dd>JUnit 5, Mockito, MockMvc, PHPUnit, k6, Postman</dd>
             <dt>Security</dt><dd>OWASP ZAP, Burp Suite, authentication and authorization</dd>
+            <dt>DevOps</dt><dd>Docker, Azure Container Apps, Git, GitHub, Vim</dd>
+            <dt>Concepts</dt><dd>Distributed systems, system design, concurrency, algorithms</dd>
           </dl>
         </div>
         <div>
